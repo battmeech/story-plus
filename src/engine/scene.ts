@@ -1,5 +1,6 @@
 export enum SceneType {
   LOCATION = "LOCATION",
+  DESCRIPTION = "DESCRIPTION",
 }
 
 export interface Scene {
