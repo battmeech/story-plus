@@ -14,6 +14,7 @@ export type GameOptions = {
 export class Game {
   activeScene: Scene;
   scenes: Record<string, Scene>;
+
   onSceneChange?: (newGameState: Game) => void;
   changeActiveScene = (sceneId: string) => {
     this.activeScene = this.scenes[sceneId];

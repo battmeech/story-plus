@@ -1,9 +1,10 @@
 import { Location as EngineLocation } from "../../engine/location";
 import { FC } from "react";
+import { OnOutcome } from "../../engine/option";
 
 type LocationProps = {
   location: EngineLocation;
-  onSelection: (nextSceneId: string) => void;
+  onSelection: (selection: OnOutcome) => void;
 };
 
 export const Location: FC<LocationProps> = ({
@@ -20,15 +21,10 @@ export const Location: FC<LocationProps> = ({
     <div>
       <p>{location.displayText}</p>
 
-      {options.map(({ optionId, displayText, onSelection }) => (
+      {options.map(({ displayText, onSelection }) => (
         <div>
-          <p>
-            {optionId}. {displayText}
-          </p>
-          <button
-            onClick={() => _onSelection(onSelection.onSuccess.goToReference)}
-          >
-            Do this
+          <button onClick={() => _onSelection(onSelection.onSuccess)}>
+            {displayText}
           </button>
         </div>
       ))}

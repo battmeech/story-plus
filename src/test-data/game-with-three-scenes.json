@@ -12,6 +12,14 @@
               "goToReference": "scene-two"
             }
           }
+        },
+        "2": {
+          "displayText": "Or what about a 3rd scene?",
+          "onSelection": {
+            "onSuccess": {
+              "goToReference": "scene-three"
+            }
+          }
         }
       }
     },
@@ -23,7 +31,21 @@
           "displayText": "This is scary, go back to the last scene!",
           "onSelection": {
             "onSuccess": {
-              "displayText": "Phew let's go back!",
+              "displayText": "Phew thanks for turning back.",
+              "goToReference": "scene-one"
+            }
+          }
+        }
+      }
+    },
+    "scene-three": {
+      "type": "LOCATION",
+      "displayText": "This is the special location.",
+      "options": {
+        "1": {
+          "displayText": "Right time to go home!",
+          "onSelection": {
+            "onSuccess": {
               "goToReference": "scene-one"
             }
           }

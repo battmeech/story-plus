@@ -1,9 +1,9 @@
-type OnOutcome = {
+export type OnOutcome = {
   displayText?: string;
   goToReference: string;
 };
 
-type OnSelection = {
+export type OnSelection = {
   displayText?: string;
   onSuccess: OnOutcome;
 };
