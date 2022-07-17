@@ -1,7 +1,7 @@
 import { Scene, SceneType } from "./scene";
 import { Location } from "./location";
 
-export const sceneLoader = <T>(id: string, input: any): Scene => {
+export const sceneLoader = (id: string, input: any): Scene => {
   switch (input.type as SceneType) {
     case SceneType.LOCATION:
       return new Location(id, input);

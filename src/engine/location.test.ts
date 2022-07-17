@@ -1,5 +1,5 @@
 import { Location } from "./location";
-import locationData from "../../test-data/location.json";
+import locationData from "../test-data/location.json";
 import { SceneType } from "./scene";
 
 describe("Location", () => {

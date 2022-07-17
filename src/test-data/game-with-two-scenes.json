@@ -1,11 +1,12 @@
 {
+  "initialScene":  "scene-one",
   "scenes": {
     "scene-one": {
       "type": "LOCATION",
       "displayText": "Hello there, welcome to the first scene",
       "options": {
         "1": {
-          "displayText": "This is the first option",
+          "displayText": "Lets see another scene",
           "onSelection": {
             "onSuccess": {
               "goToReference": "scene-two"
