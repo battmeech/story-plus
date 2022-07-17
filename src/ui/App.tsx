@@ -4,7 +4,7 @@ import { Game } from "./Game/Game";
 import gameData from "../test-data/game-with-description-and-decision.json";
 import { Game as EngineGame } from "../engine/game";
 
-function App() {
+export const App = () => {
   const onSceneChange = (newGameState: EngineGame) => {
     setGame((current) => {
       return {
@@ -25,6 +25,4 @@ function App() {
       </header>
     </div>
   );
-}
-
-export default App;
+};
