@@ -1,0 +1,32 @@
+{
+  "scenes": {
+    "scene-one": {
+      "type": "LOCATION",
+      "displayText": "Hello there, welcome to the first scene",
+      "options": {
+        "1": {
+          "displayText": "This is the first option",
+          "onSelection": {
+            "onSuccess": {
+              "goToReference": "scene-two"
+            }
+          }
+        }
+      }
+    },
+    "scene-two": {
+      "type": "LOCATION",
+      "displayText": "Now you're in the second scene",
+      "options": {
+        "1": {
+          "displayText": "This is scary, go back to the last scene!",
+          "onSelection": {
+            "onSuccess": {
+              "goToReference": "scene-one"
+            }
+          }
+        }
+      }
+    }
+  }
+}

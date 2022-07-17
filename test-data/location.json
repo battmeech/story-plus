@@ -1,0 +1,22 @@
+{
+  "type": "LOCATION",
+  "displayText": "Hello there, welcome to the scene",
+  "options": {
+    "1": {
+      "displayText": "This is the first option",
+      "onSelection": {
+        "onSuccess": {
+          "goToReference": "first-town-cheese-monger-item-selection"
+        }
+      }
+    },
+    "2": {
+      "displayText": "This is the second scene",
+      "onSelection": {
+        "onSuccess": {
+          "goToReference": "first-town-exploration"
+        }
+      }
+    }
+  }
+}
