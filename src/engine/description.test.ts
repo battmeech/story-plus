@@ -8,5 +8,8 @@ describe("Description", () => {
 
     expect(description.type).toEqual(SceneType.DESCRIPTION);
     expect(description.displayText).toEqual(descriptionData.displayText);
+    expect(description.onNext.goToReference).toEqual(
+      descriptionData.onNext.goToReference
+    );
   });
 });

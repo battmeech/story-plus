@@ -1,5 +1,7 @@
 {
   "type": "DESCRIPTION",
   "displayText": "Epic description about something",
-  "goToReference": "next-scene"
+  "onNext": {
+    "goToReference": "next-scene"
+  }
 }

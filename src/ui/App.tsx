@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Game } from "./Game/Game";
-import gameData from "../test-data/game-with-three-scenes.json";
+import gameData from "../test-data/game-with-description-and-decision.json";
 import { Game as EngineGame } from "../engine/game";
 
 function App() {

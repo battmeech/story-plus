@@ -28,7 +28,7 @@ export const Game: FC<LocationProps> = ({ game }) => {
       {outcome ? (
         <>
           <p>{outcome.displayText}</p>
-          <button onClick={() => onNext(outcome)}>Continue</button>
+          <button onClick={() => onNext(outcome)}>Next</button>
         </>
       ) : (
         <Scene scene={game.activeScene} onSelection={onSelection} />

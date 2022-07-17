@@ -1,20 +1,20 @@
 import { Scene, SceneType } from "./scene";
-import { Option, OptionInput } from "./option";
+import { OnOutcome } from "./option";
 
 export type DescriptionInput = {
   displayText: string;
-  goToReference: string;
+  onNext: OnOutcome;
 };
 
 export class Description implements Scene {
   id: string;
   type = SceneType.DESCRIPTION;
   displayText: string;
-  goToReference: string;
+  onNext: OnOutcome;
 
-  constructor(id: string, { displayText, goToReference }: DescriptionInput) {
+  constructor(id: string, { displayText, onNext }: DescriptionInput) {
     this.id = id;
     this.displayText = displayText;
-    this.goToReference = goToReference;
+    this.onNext = onNext;
   }
 }

@@ -1,0 +1,57 @@
+{
+  "initialScene": "scene-one",
+  "scenes": {
+    "scene-one": {
+      "type": "DESCRIPTION",
+      "displayText": "Hello there, this is a description scene. It contains no options for the player.",
+      "onNext": {
+        "goToReference": "scene-two"
+      }
+    },
+    "scene-two": {
+      "type": "DECISION",
+      "displayText": "This is a decision, it provides players with a choice of multiple things they can do in a given scenario.",
+      "options": {
+        "1": {
+          "displayText": "Go back to the description",
+          "onSelection": {
+            "onSuccess": {
+              "goToReference": "scene-one"
+            }
+          }
+        },
+        "2": {
+          "displayText": "See a \"between the scenes\" message.",
+          "onSelection": {
+            "onSuccess": {
+              "displayText": "This is a between the scenes piece of text, maybe use it to describe the transition between scenes!",
+              "goToReference": "scene-two"
+            }
+          }
+        },
+        "3": {
+          "displayText": "Complete this tutorial",
+          "onSelection": {
+            "onSuccess": {
+              "goToReference": "scene-three"
+            }
+          }
+        }
+      }
+    },
+    "scene-three": {
+      "type": "DECISION",
+      "displayText": "Thanks for clicking through the tutorial.",
+      "options": {
+        "1": {
+          "displayText": "Restart",
+          "onSelection": {
+            "onSuccess": {
+              "goToReference": "scene-one"
+            }
+          }
+        }
+      }
+    }
+  }
+}
