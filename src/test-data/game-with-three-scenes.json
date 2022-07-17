@@ -2,7 +2,7 @@
   "initialScene":  "scene-one",
   "scenes": {
     "scene-one": {
-      "type": "LOCATION",
+      "type": "DECISION",
       "displayText": "Hello there, welcome to the first scene",
       "options": {
         "1": {
@@ -24,7 +24,7 @@
       }
     },
     "scene-two": {
-      "type": "LOCATION",
+      "type": "DECISION",
       "displayText": "Now you're in the second scene",
       "options": {
         "1": {
@@ -39,7 +39,7 @@
       }
     },
     "scene-three": {
-      "type": "LOCATION",
+      "type": "DECISION",
       "displayText": "This is the special location.",
       "options": {
         "1": {

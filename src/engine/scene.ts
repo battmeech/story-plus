@@ -1,5 +1,5 @@
 export enum SceneType {
-  LOCATION = "LOCATION",
+  DECISION = "DECISION",
   DESCRIPTION = "DESCRIPTION",
 }
 

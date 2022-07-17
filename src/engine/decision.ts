@@ -1,18 +1,18 @@
 import { Scene, SceneType } from "./scene";
 import { Option, OptionInput } from "./option";
 
-export type LocationInput = {
+export type DecisionInput = {
   displayText: string;
   options: Record<string, OptionInput>;
 };
 
-export class Location implements Scene {
+export class Decision implements Scene {
   id: string;
-  type = SceneType.LOCATION;
+  type = SceneType.DECISION;
   displayText: string;
   options: Record<string, Option>;
 
-  constructor(id: string, { displayText, options }: LocationInput) {
+  constructor(id: string, { displayText, options }: DecisionInput) {
     this.id = id;
     this.displayText = displayText;
     this.options = Object.keys(options).reduce(

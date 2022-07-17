@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { SceneType, Scene as EngineScene } from "../../engine/scene";
-import { Location as EngineLocation } from "../../engine/location";
-import { Location } from "../Scene/Location";
+import { Decision as EngineLocation } from "../../engine/decision";
+import { Decision } from "./Decision";
 import { OnOutcome } from "../../engine/option";
 
 type SceneProps = {
@@ -11,12 +11,14 @@ type SceneProps = {
 
 export const Scene: FC<SceneProps> = ({ scene, onSelection }) => {
   switch (scene.type) {
-    case SceneType.LOCATION:
+    case SceneType.DECISION:
       return (
-        <Location
-          location={scene as EngineLocation}
+        <Decision
+          decision={scene as EngineLocation}
           onSelection={onSelection}
         />
       );
+    case SceneType.DESCRIPTION:
+      return <div>description</div>;
   }
 };

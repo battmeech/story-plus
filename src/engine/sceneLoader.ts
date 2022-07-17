@@ -1,11 +1,11 @@
 import { Scene, SceneType } from "./scene";
-import { Location } from "./location";
+import { Decision } from "./decision";
 import { Description } from "./description";
 
 export const sceneLoader = (id: string, input: any): Scene => {
   switch (input.type as SceneType) {
-    case SceneType.LOCATION:
-      return new Location(id, input);
+    case SceneType.DECISION:
+      return new Decision(id, input);
     case SceneType.DESCRIPTION:
       return new Description(id, input);
     default:

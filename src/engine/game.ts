@@ -1,10 +1,10 @@
 import { Scene } from "./scene";
-import { LocationInput } from "./location";
+import { DecisionInput } from "./decision";
 import { sceneLoader } from "./sceneLoader";
 
 export type GameInput = {
   initialScene: string;
-  scenes: Record<string, LocationInput>;
+  scenes: Record<string, DecisionInput>;
 };
 
 export type GameOptions = {
