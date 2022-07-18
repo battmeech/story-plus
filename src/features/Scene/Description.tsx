@@ -1,10 +1,10 @@
-import { Description as EngineDescription } from "../../engine/description";
 import { FC } from "react";
-import { OnOutcome } from "../../engine/option";
+import { ModuleDescription } from "../../module-types/description";
+import { ModuleOnOutcome } from "../../module-types/option";
 
 type DescriptionProps = {
-  description: EngineDescription;
-  onSelection: (selection: OnOutcome) => void;
+  description: ModuleDescription;
+  onSelection: (selection: ModuleOnOutcome) => void;
 };
 
 export const Description: FC<DescriptionProps> = ({

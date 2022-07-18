@@ -1,10 +1,10 @@
-import { Decision as EngineLocation } from "../../engine/decision";
 import { FC } from "react";
-import { OnOutcome } from "../../engine/option";
+import { ModuleDecision } from "../../module-types/decision";
+import { ModuleOnOutcome } from "../../module-types/option";
 
 type DecisionProps = {
-  decision: EngineLocation;
-  onSelection: (selection: OnOutcome) => void;
+  decision: ModuleDecision;
+  onSelection: (selection: ModuleOnOutcome) => void;
 };
 
 export const Decision: FC<DecisionProps> = ({

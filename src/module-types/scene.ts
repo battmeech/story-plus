@@ -3,8 +3,7 @@ export enum SceneType {
   DESCRIPTION = "DESCRIPTION",
 }
 
-export interface Scene {
-  id: string;
+export type ModuleScene = {
   type: SceneType;
   displayText: string;
-}
+};

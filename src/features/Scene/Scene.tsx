@@ -1,14 +1,14 @@
 import { FC } from "react";
-import { SceneType, Scene as EngineScene } from "../../engine/scene";
-import { Decision as EngineLocation } from "../../engine/decision";
-import { Description as EngineDescription } from "../../engine/description";
 import { Decision } from "./Decision";
-import { OnOutcome } from "../../engine/option";
 import { Description } from "./Description";
+import { ModuleScene, SceneType } from "../../module-types/scene";
+import { ModuleOnOutcome } from "../../module-types/option";
+import { ModuleDecision } from "../../module-types/decision";
+import { ModuleDescription } from "../../module-types/description";
 
 type SceneProps = {
-  scene: EngineScene;
-  onSelection: (selection: OnOutcome) => void;
+  scene: ModuleScene;
+  onSelection: (selection: ModuleOnOutcome) => void;
 };
 
 export const Scene: FC<SceneProps> = ({ scene, onSelection }) => {
@@ -16,14 +16,14 @@ export const Scene: FC<SceneProps> = ({ scene, onSelection }) => {
     case SceneType.DECISION:
       return (
         <Decision
-          decision={scene as EngineLocation}
+          decision={scene as ModuleDecision}
           onSelection={onSelection}
         />
       );
     case SceneType.DESCRIPTION:
       return (
         <Description
-          description={scene as EngineDescription}
+          description={scene as ModuleDescription}
           onSelection={onSelection}
         />
       );
