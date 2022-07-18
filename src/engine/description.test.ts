@@ -1,4 +1,4 @@
-import descriptionData from "../test-data/description.json";
+import descriptionData from "../../test-data/description.json";
 import { Description } from "./description";
 import { SceneType } from "./scene";
 

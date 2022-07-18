@@ -1,5 +1,5 @@
 import { Decision } from "./decision";
-import decisionData from "../test-data/decision.json";
+import decisionData from "../../test-data/decision.json";
 import { SceneType } from "./scene";
 
 describe("Decision", () => {

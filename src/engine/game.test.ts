@@ -1,5 +1,5 @@
 import { Game } from "./game";
-import gameWithTwoScenes from "../test-data/game-with-two-scenes.json";
+import gameWithTwoScenes from "../../test-data/game-with-two-scenes.json";
 
 describe("Game", () => {
   it("can load a game with two scenes", () => {
