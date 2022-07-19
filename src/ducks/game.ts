@@ -2,11 +2,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ModuleGame } from "../module-types/game";
 import { ModuleScene, SceneType } from "../module-types/scene";
 import { ModuleOnOutcome } from "../module-types/option";
+import { ModulePlayerCharacter } from "../module-types/character";
 
 export type GameState = {
   activeScene: ModuleScene;
   currentOutcome?: ModuleOnOutcome;
   scenes: Record<string, ModuleScene>;
+  playerCharacter: ModulePlayerCharacter;
 };
 
 const initialState: GameState = {
@@ -15,6 +17,7 @@ const initialState: GameState = {
     type: SceneType.DESCRIPTION,
     displayText: "This scene should never be seen",
   },
+  playerCharacter: { name: "", skillScores: {} },
 };
 
 const gameStateSlice = createSlice({
@@ -24,6 +27,7 @@ const gameStateSlice = createSlice({
     load(state, action: PayloadAction<ModuleGame>) {
       state.scenes = action.payload.scenes;
       state.activeScene = action.payload.scenes[action.payload.initialScene];
+      state.playerCharacter = action.payload.playerCharacter;
     },
     changeActiveScene(state, action: PayloadAction<string>) {
       state.activeScene = state.scenes[action.payload];

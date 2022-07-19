@@ -32,6 +32,15 @@ describe("Scenario Tests", () => {
       store.dispatch(applicationActions.setScreen(ApplicationScreen.GAME));
     });
 
+    it("loads the store into the correct state on loading module", () => {
+      const { gameState } = store.getState();
+
+      expect(gameState.activeScene.displayText).toEqual(
+        "Hello there, this is a description scene. It contains no options for the player."
+      );
+      expect(gameState.playerCharacter.name).toEqual("Link");
+    });
+
     it("loads the initial scene when loading up a game", () => {
       render(
         <Provider store={store}>
