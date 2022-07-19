@@ -1,14 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ModuleGame } from "../module-types/game";
 import { ModuleScene, SceneType } from "../module-types/scene";
+import { ModuleOnOutcome } from "../module-types/option";
 
 export type GameState = {
-  game: ModuleGame;
   activeScene: ModuleScene;
+  currentOutcome?: ModuleOnOutcome;
+  scenes: Record<string, ModuleScene>;
 };
 
 const initialState: GameState = {
-  game: { scenes: {}, initialScene: "initialScene" },
+  scenes: {},
   activeScene: {
     type: SceneType.DESCRIPTION,
     displayText: "This scene should never be seen",
@@ -20,11 +22,15 @@ const gameStateSlice = createSlice({
   initialState: initialState as GameState,
   reducers: {
     load(state, action: PayloadAction<ModuleGame>) {
-      state.game = action.payload;
+      state.scenes = action.payload.scenes;
       state.activeScene = action.payload.scenes[action.payload.initialScene];
     },
     changeActiveScene(state, action: PayloadAction<string>) {
-      state.activeScene = state.game.scenes[action.payload];
+      state.activeScene = state.scenes[action.payload];
+      state.currentOutcome = undefined;
+    },
+    setCurrentOutcome(state, action: PayloadAction<ModuleOnOutcome>) {
+      state.currentOutcome = action.payload;
     },
   },
 });
