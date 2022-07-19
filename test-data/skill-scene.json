@@ -2,24 +2,12 @@
   "playerCharacter": {
     "name": "Link",
     "skillScores": {
-      "CHA": {
-        "value": 8
-      },
-      "DEX": {
-        "value": 16
-      },
-      "STR": {
-        "value": 16
-      },
-      "WIS": {
-        "value": 16
-      },
-      "INT": {
-        "value": 15
-      },
-      "CON": {
-        "value": 20
-      }
+      "CHA": 8,
+      "DEX": 16,
+      "STR": 16,
+      "WIS": 15,
+      "INT": 12,
+      "CON": 18
     }
   },
   "initialScene": "skill-test",

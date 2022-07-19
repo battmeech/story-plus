@@ -1,3 +1,5 @@
+import { ModuleSkillScores } from "./skill";
+
 export type ModuleOnOutcome = {
   displayText?: string;
   goToReference: string;
@@ -11,5 +13,5 @@ export type ModuleOnSelection = {
 export type ModuleOption = {
   displayText: string;
   onSelection: ModuleOnSelection;
-  skillRequirements?: Record<string, number>;
+  skillRequirements?: ModuleSkillScores;
 };

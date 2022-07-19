@@ -42,7 +42,7 @@ const gameStateSlice = createSlice({
         payload: { skill, amountGained },
       }: PayloadAction<{ skill: string; amountGained: number }>
     ) {
-      state.playerCharacter.skillScores[skill].value += amountGained;
+      state.playerCharacter.skillScores[skill] += amountGained;
     },
   },
 });

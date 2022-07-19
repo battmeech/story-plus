@@ -25,7 +25,7 @@ export const Decision: FC<DecisionProps> = ({
       if (!skillRequirements) return true;
 
       const playerMeetsRequirements = Object.keys(skillRequirements).every(
-        (it) => skillRequirements[it] <= playerCharacter.skillScores[it].value
+        (it) => skillRequirements[it] <= playerCharacter.skillScores[it]
       );
 
       return playerMeetsRequirements;
