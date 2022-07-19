@@ -23,6 +23,9 @@ export const FileLoader = () => {
   };
 
   return (
-    <input type="file" onChange={(event) => onChange(event.target.files)} />
+    <>
+      <p>Choose the module you would like to play</p>
+      <input type="file" onChange={(event) => onChange(event.target.files)} />
+    </>
   );
 };
