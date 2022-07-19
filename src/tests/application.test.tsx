@@ -2,7 +2,7 @@ import { Provider } from "react-redux";
 import { store } from "../ducks/store";
 import { Application } from "../features/Application/Application";
 import { gameStateActions } from "../ducks/game";
-import gameData from "../../test-data/game-with-description-and-decision.json";
+import gameData from "../../test-data/minimal-working-game.json";
 import { ModuleGame } from "../module-types/game";
 import { applicationActions, ApplicationScreen } from "../ducks/application";
 import { act, render, screen } from "@testing-library/react";
