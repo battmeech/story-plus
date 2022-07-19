@@ -36,6 +36,14 @@ const gameStateSlice = createSlice({
     setCurrentOutcome(state, action: PayloadAction<ModuleOnOutcome>) {
       state.currentOutcome = action.payload;
     },
+    increaseSkillScore(
+      state,
+      {
+        payload: { skill, amountGained },
+      }: PayloadAction<{ skill: string; amountGained: number }>
+    ) {
+      state.playerCharacter.skillScores[skill].value += amountGained;
+    },
   },
 });
 

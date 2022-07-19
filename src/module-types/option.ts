@@ -11,4 +11,5 @@ export type ModuleOnSelection = {
 export type ModuleOption = {
   displayText: string;
   onSelection: ModuleOnSelection;
+  skillRequirements?: Record<string, number>;
 };

@@ -1,0 +1,53 @@
+{
+  "playerCharacter": {
+    "name": "Link",
+    "skillScores": {
+      "CHA": {
+        "value": 8
+      },
+      "DEX": {
+        "value": 16
+      },
+      "STR": {
+        "value": 16
+      },
+      "WIS": {
+        "value": 16
+      },
+      "INT": {
+        "value": 15
+      },
+      "CON": {
+        "value": 20
+      }
+    }
+  },
+  "initialScene": "skill-test",
+  "scenes": {
+    "skill-test": {
+      "type": "DECISION",
+      "displayText": "Test skill challenge",
+      "options": {
+        "visible-button": {
+          "displayText": "visible",
+          "onSelection": {
+            "onSuccess": {
+              "goToReference": "skill-test"
+            }
+          }
+        },
+        "invisible-button": {
+          "skillRequirements": {
+            "CHA": 50
+          },
+          "displayText": "skill test",
+          "onSelection": {
+            "onSuccess": {
+              "goToReference": "skill-test"
+            }
+          }
+        }
+      }
+    }
+  }
+}

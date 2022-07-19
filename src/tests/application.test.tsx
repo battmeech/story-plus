@@ -7,7 +7,7 @@ import { ModuleGame } from "../module-types/game";
 import { applicationActions, ApplicationScreen } from "../ducks/application";
 import { act, render, screen } from "@testing-library/react";
 
-describe("Scenario Tests", () => {
+describe("Application Behaviour", () => {
   describe("File loading screen", () => {
     beforeEach(() => {
       store.dispatch(applicationActions.setScreen(ApplicationScreen.LOAD_GAME));
@@ -32,30 +32,17 @@ describe("Scenario Tests", () => {
       store.dispatch(applicationActions.setScreen(ApplicationScreen.GAME));
     });
 
-    it("loads the store into the correct state on loading module", () => {
-      const { gameState } = store.getState();
-
-      expect(gameState.activeScene.displayText).toEqual(
-        "Hello there, this is a description scene. It contains no options for the player."
-      );
-      expect(gameState.playerCharacter.name).toEqual("Link");
-    });
-
-    it("loads the initial scene when loading up a game", () => {
+    it("displays the initial scene when loading up a game", () => {
       render(
         <Provider store={store}>
           <Application />
         </Provider>
       );
 
-      expect(
-        screen.getByText(
-          "Hello there, this is a description scene. It contains no options for the player."
-        )
-      ).toBeInTheDocument();
+      expect(screen.getByText("Sample description scene")).toBeInTheDocument();
     });
 
-    it("goes to the next scene when clicking next", async () => {
+    it("displays scene two when clicking next", async () => {
       render(
         <Provider store={store}>
           <Application />
@@ -66,11 +53,7 @@ describe("Scenario Tests", () => {
         screen.getByText("Next").click();
       });
 
-      expect(
-        screen.getByText(
-          "This is a decision, it provides players with a choice of multiple things they can do in a given scenario."
-        )
-      ).toBeInTheDocument();
+      expect(screen.getByText("Sample decision scene")).toBeInTheDocument();
     });
   });
 });

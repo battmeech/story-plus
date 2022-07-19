@@ -26,17 +26,17 @@
   "scenes": {
     "scene-one": {
       "type": "DESCRIPTION",
-      "displayText": "Hello there, this is a description scene. It contains no options for the player.",
+      "displayText": "Sample description scene",
       "onNext": {
         "goToReference": "scene-two"
       }
     },
     "scene-two": {
       "type": "DECISION",
-      "displayText": "This is a decision, it provides players with a choice of multiple things they can do in a given scenario.",
+      "displayText": "Sample decision scene",
       "options": {
         "1": {
-          "displayText": "Go back to the description",
+          "displayText": "Return to start",
           "onSelection": {
             "onSuccess": {
               "goToReference": "scene-one"
@@ -44,32 +44,44 @@
           }
         },
         "2": {
-          "displayText": "See a \"between the scenes\" message.",
+          "displayText": "See a \"between the scenes\" message",
           "onSelection": {
             "onSuccess": {
-              "displayText": "This is a between the scenes piece of text, maybe use it to describe the transition between scenes!",
+              "displayText": "Output of decision",
               "goToReference": "scene-two"
             }
           }
         },
         "3": {
-          "displayText": "Complete this tutorial",
+          "displayText": "Go to a skill test",
           "onSelection": {
             "onSuccess": {
-              "goToReference": "scene-three"
+              "goToReference": "scene-four"
             }
           }
         }
       }
     },
-    "scene-three": {
+    "scene-four": {
       "type": "DECISION",
-      "displayText": "Thanks for clicking through the tutorial.",
+      "displayText": "Skill challenge in this scene. Set CHA to 5000 before loading file to see it",
       "options": {
         "1": {
-          "displayText": "Restart",
+          "displayText": "Return to start",
           "onSelection": {
             "onSuccess": {
+              "goToReference": "scene-one"
+            }
+          }
+        },
+        "2": {
+          "skillRequirements": {
+            "CHA": 5000
+          },
+          "displayText": "Hidden skill test",
+          "onSelection": {
+            "onSuccess": {
+              "displayText": "Returning to start",
               "goToReference": "scene-one"
             }
           }

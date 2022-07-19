@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { ModuleDecision } from "../../module-types/decision";
 import { ModuleOnOutcome } from "../../module-types/option";
+import { useGameState } from "../../ducks/store";
 
 type DecisionProps = {
   decision: ModuleDecision;
@@ -11,11 +12,24 @@ export const Decision: FC<DecisionProps> = ({
   decision,
   onSelection: _onSelection,
 }) => {
-  const options = Object.keys(decision.options).map((option) => ({
-    optionId: option,
-    displayText: decision.options[option].displayText,
-    onSelection: decision.options[option].onSelection,
-  }));
+  const { playerCharacter } = useGameState();
+
+  const options = Object.keys(decision.options)
+    .map((option) => ({
+      optionId: option,
+      displayText: decision.options[option].displayText,
+      onSelection: decision.options[option].onSelection,
+      skillRequirements: decision.options[option].skillRequirements,
+    }))
+    .filter(({ skillRequirements }) => {
+      if (!skillRequirements) return true;
+
+      const playerMeetsRequirements = Object.keys(skillRequirements).every(
+        (it) => skillRequirements[it] <= playerCharacter.skillScores[it].value
+      );
+
+      return playerMeetsRequirements;
+    });
 
   return (
     <div>

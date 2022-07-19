@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { gameStateActions } from "../../ducks/game";
 import { ModuleOnOutcome } from "../../module-types/option";
 import { useGameState } from "../../ducks/store";
 import { useDispatch } from "react-redux";
 import { Scene } from "../Scene/Scene";
+import { applicationActions, ApplicationScreen } from "../../ducks/application";
 
 export const Game = () => {
   const { activeScene, currentOutcome } = useGameState();
@@ -23,6 +24,13 @@ export const Game = () => {
 
   return (
     <>
+      <button
+        onClick={() =>
+          dispatch(applicationActions.setScreen(ApplicationScreen.LOAD_GAME))
+        }
+      >
+        Reload game file
+      </button>
       {currentOutcome ? (
         <>
           <p>{currentOutcome.displayText}</p>
