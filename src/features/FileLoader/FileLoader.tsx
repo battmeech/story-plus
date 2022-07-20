@@ -15,8 +15,8 @@ export const FileLoader = () => {
       fileReader.onload = (event) => {
         const result = event.target?.result;
         if (result) {
-          dispatch(gameStateActions.load(JSON.parse(result as string)));
-          dispatch(applicationActions.setScreen(ApplicationScreen.GAME));
+          dispatch(gameStateActions.gameLoaded(JSON.parse(result as string)));
+          dispatch(applicationActions.screenChanged(ApplicationScreen.GAME));
         }
       };
     }

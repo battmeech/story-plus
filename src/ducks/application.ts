@@ -17,7 +17,7 @@ const applicationSlice = createSlice({
   name: "application",
   initialState,
   reducers: {
-    setScreen(state, action: PayloadAction<ApplicationScreen>) {
+    screenChanged(state, action: PayloadAction<ApplicationScreen>) {
       state.screen = action.payload;
     },
   },

@@ -10,7 +10,9 @@ import { act, render, screen } from "@testing-library/react";
 describe("Application Behaviour", () => {
   describe("File loading screen", () => {
     beforeEach(() => {
-      store.dispatch(applicationActions.setScreen(ApplicationScreen.LOAD_GAME));
+      store.dispatch(
+        applicationActions.screenChanged(ApplicationScreen.LOAD_GAME)
+      );
     });
 
     it("shows the file loader when set to that screen", () => {
@@ -28,8 +30,8 @@ describe("Application Behaviour", () => {
 
   describe("Game screen", () => {
     beforeEach(() => {
-      store.dispatch(gameStateActions.load(gameData as ModuleGame));
-      store.dispatch(applicationActions.setScreen(ApplicationScreen.GAME));
+      store.dispatch(gameStateActions.gameLoaded(gameData as ModuleGame));
+      store.dispatch(applicationActions.screenChanged(ApplicationScreen.GAME));
     });
 
     it("displays the initial scene when loading up a game", () => {

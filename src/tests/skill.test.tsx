@@ -9,8 +9,8 @@ import { render, screen } from "@testing-library/react";
 
 describe("Skill based options", () => {
   beforeEach(() => {
-    store.dispatch(gameStateActions.load(gameData as ModuleGame));
-    store.dispatch(applicationActions.setScreen(ApplicationScreen.GAME));
+    store.dispatch(gameStateActions.gameLoaded(gameData as ModuleGame));
+    store.dispatch(applicationActions.screenChanged(ApplicationScreen.GAME));
   });
 
   it("displays only the visible button when a characters skill is not high enough", () => {
@@ -26,7 +26,7 @@ describe("Skill based options", () => {
 
   it("displays the skill test button if the character has a high enough skill level", () => {
     store.dispatch(
-      gameStateActions.increaseSkillScore({ skill: "CHA", amountGained: 1000 })
+      gameStateActions.skillScoreIncreased({ skill: "CHA", amountGained: 1000 })
     );
 
     render(

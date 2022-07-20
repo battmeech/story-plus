@@ -6,9 +6,10 @@ import { ModulePlayerCharacter } from "../module-types/character";
 
 export type GameState = {
   activeScene: ModuleScene;
-  currentOutcome?: ModuleOnOutcome;
+  lastOutcome: ModuleOnOutcome;
   scenes: Record<string, ModuleScene>;
   playerCharacter: ModulePlayerCharacter;
+  showOutcome: boolean;
 };
 
 const initialState: GameState = {
@@ -17,6 +18,10 @@ const initialState: GameState = {
     type: SceneType.DESCRIPTION,
     displayText: "This scene should never be seen",
   },
+  lastOutcome: {
+    goToReference: "",
+  },
+  showOutcome: false,
   playerCharacter: { name: "", skillScores: {} },
 };
 
@@ -24,19 +29,26 @@ const gameStateSlice = createSlice({
   name: "game-state",
   initialState: initialState as GameState,
   reducers: {
-    load(state, action: PayloadAction<ModuleGame>) {
+    gameLoaded(state, action: PayloadAction<ModuleGame>) {
       state.scenes = action.payload.scenes;
       state.activeScene = action.payload.scenes[action.payload.initialScene];
       state.playerCharacter = action.payload.playerCharacter;
     },
-    changeActiveScene(state, action: PayloadAction<string>) {
+    decisionOutcome(state, action: PayloadAction<ModuleOnOutcome>) {
+      state.lastOutcome = action.payload;
+      state.activeScene = state.activeScene =
+        state.scenes[action.payload.goToReference];
+
+      if (action.payload.displayText) state.showOutcome = true;
+    },
+    outcomeAcknowledged(state) {
+      state.showOutcome = false;
+    },
+    sceneChanged(state, action: PayloadAction<string>) {
       state.activeScene = state.scenes[action.payload];
-      state.currentOutcome = undefined;
+      state.showOutcome = false;
     },
-    setCurrentOutcome(state, action: PayloadAction<ModuleOnOutcome>) {
-      state.currentOutcome = action.payload;
-    },
-    increaseSkillScore(
+    skillScoreIncreased(
       state,
       {
         payload: { skill, amountGained },
