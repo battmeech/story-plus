@@ -25,7 +25,11 @@ export const FileLoader = () => {
   return (
     <>
       <p>Choose the module you would like to play</p>
-      <input type="file" onChange={(event) => onChange(event.target.files)} />
+      <input
+        accept="mlmlml"
+        type="file"
+        onChange={(event) => onChange(event.target.files)}
+      />
     </>
   );
 };
