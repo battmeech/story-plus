@@ -1,15 +1,15 @@
 import { GameState } from "../game";
-import { ModuleReward } from "../../module-types/reward";
+import { ModulePlayerOutcome } from "../../module-types/reward";
 
 export const processRewards = (
   state: GameState,
-  reward: ModuleReward | undefined
+  playerOutcome: ModulePlayerOutcome | undefined
 ) => {
-  if (!reward) return;
-  if (reward.skills) {
-    for (const skill of Object.keys(reward.skills)) {
+  if (!playerOutcome) return;
+  if (playerOutcome.skills) {
+    for (const skill of Object.keys(playerOutcome.skills)) {
       state.playerCharacter.skillScores[skill] +=
-        reward.skills[skill].amountGained;
+        playerOutcome.skills[skill].amountGained;
     }
   }
 };

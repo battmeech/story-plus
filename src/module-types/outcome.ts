@@ -1,7 +1,7 @@
-import { ModuleReward } from "./reward";
+import { ModulePlayerOutcome } from "./reward";
 
 export type ModuleOutcome = {
   displayText?: string;
   goToReference: string;
-  reward?: ModuleReward;
+  playerOutcome?: ModulePlayerOutcome;
 };

@@ -42,7 +42,7 @@
       "displayText": "Skill increasing",
       "onNext": {
         "goToReference": "skill-increase",
-        "reward": {
+        "playerOutcome": {
           "skills": {
             "WIS": {
               "amountGained": 2
