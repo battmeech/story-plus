@@ -18,8 +18,9 @@
     "eject": "react-scripts eject",
     "electron": "wait-on tcp:3000 && electron .",
     "dev": "concurrently -k \"BROWSER=none yarn start\" \"yarn:electron\"",
+    "clean": "rimraf build dist",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "yarn clean && yarn build && electron-builder"
   },
   "eslintConfig": {
     "extends": [
@@ -56,6 +57,7 @@
     "electron-builder": "^23.1.0",
     "prettier": "^2.7.1",
     "react-scripts": "5.0.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.7.4",
     "wait-on": "^6.0.1"
   }
