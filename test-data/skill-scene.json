@@ -62,6 +62,20 @@
           }
         }
       }
+    },
+    "experience-increase": {
+      "type": "DESCRIPTION",
+      "displayText": "Skill increasing",
+      "onNext": {
+        "goToReference": "skill-increase",
+        "playerOutcome": {
+          "skills": {
+            "WIS": {
+              "experienceGained": 7
+            }
+          }
+        }
+      }
     }
   }
 }
