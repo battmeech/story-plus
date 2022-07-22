@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { ModuleDecision } from "../../module-types/decision";
-import { ModuleOnOutcome } from "../../module-types/option";
 import { useGameState } from "../../ducks/store";
+import { ModuleOutcome } from "../../module-types/outcome";
 
 type DecisionProps = {
   decision: ModuleDecision;
-  onSelection: (selection: ModuleOnOutcome) => void;
+  onSelection: (selection: ModuleOutcome) => void;
 };
 
 export const Decision: FC<DecisionProps> = ({
