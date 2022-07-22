@@ -1,0 +1,170 @@
+{
+  "playerCharacter": {
+    "name": "Breakfast Lover",
+    "skillScores": {
+      "pancakes": {
+        "value": 0
+      },
+      "hygiene": {
+        "value": 0
+      }
+    }
+  },
+  "initialScene": "intro",
+  "scenes": {
+    "intro": {
+      "type": "DESCRIPTION",
+      "displayText": "It's a beautiful Saturday morning and you don't have to worry about work for an entire weekend. The Sun is coming up and you start to feel yourself wake up.",
+      "onNext": {
+        "goToReference": "bedroom"
+      }
+    },
+    "bedroom": {
+      "type": "DECISION",
+      "displayText": "Eventually the Sun wakes you up. How pleasant! What would you like to do first?",
+      "options": {
+        "go-to-bathroom": {
+          "displayText": "Go to the bathroom",
+          "onSelection": {
+            "onSuccess": {
+              "goToReference": "bathroom"
+            }
+          }
+        }
+      }
+    },
+    "bathroom": {
+      "type": "DECISION",
+      "displayText": "Just like every morning, you wake up desperate for the toilet.",
+      "options": {
+        "restart": {
+          "displayText": "Use the loo",
+          "onSelection": {
+            "onSuccess": {
+              "displayText": "Oh the relief!",
+              "goToReference": "sink"
+            }
+          }
+        },
+        "stare-in-mirror": {
+          "displayText": "Stare at yourself in the mirror",
+          "onSelection": {
+            "onSuccess": {
+              "displayText": "Wow you're good looking.",
+              "goToReference": "bathroom"
+            }
+          }
+        }
+      }
+    },
+    "sink": {
+      "type": "DECISION",
+      "displayText": "Now... do you wash your hands before making breakfast?",
+      "options": {
+        "wash-hands": {
+          "displayText": "Of course! Is that even a question?",
+          "onSelection": {
+            "onSuccess": {
+              "displayText": "You feel slightly better about yourself",
+              "goToReference": "kitchen",
+              "playerOutcome": {
+                "skills": {
+                  "hygiene": {
+                    "amountGained": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "no-wash-hands": {
+          "displayText": "It's Saturday, washing hands is for weekdays!",
+          "onSelection": {
+            "onSuccess": {
+              "displayText": "Your hands feel slightly dirty...",
+              "goToReference": "kitchen"
+            }
+          }
+        }
+      }
+    },
+    "kitchen": {
+      "type": "DECISION",
+      "displayText": "Breakfast time! What do you do first?",
+      "options": {
+        "youtube": {
+          "displayText": "Watch that YouTube tutorial on how to make pancakes.",
+          "onSelection": {
+            "onSuccess": {
+              "displayText": "Wait.. it's just three ingredients?",
+              "goToReference": "kitchen",
+              "playerOutcome": {
+                "skills": {
+                  "pancakes": {
+                    "amountGained": 1
+                  }
+                }
+              }
+            }
+          }
+        },
+        "make-cereal": {
+          "displayText": "Make the usual, weetabix and a cup of coffee.",
+          "onSelection": {
+            "onSuccess": {
+              "displayText": "Delicious... but maybe it's time for something new.",
+              "goToReference": "living-room"
+            }
+          }
+        },
+        "make-pancakes": {
+          "displayText": "Time to put that YouTube tutorial to good use!",
+          "skillRequirements": {
+            "pancakes": 1
+          },
+          "onSelection": {
+            "onSuccess": {
+              "displayText": "This definitely beats Weetabix.",
+              "goToReference": "living-room"
+            }
+          }
+        }
+      }
+    },
+    "living-room": {
+      "type": "DESCRIPTION",
+      "displayText": "Time to spend the whole day watching Netflix... hope there was nothing else you needed to do...",
+      "onNext": {
+        "goToReference": "outro"
+      }
+    },
+    "outro": {
+      "type": "DECISION",
+      "displayText": "Thanks for playing! There's a secret button on this screen if you found everything.",
+      "options": {
+        "restart": {
+          "displayText": "Restart",
+          "onSelection": {
+            "onSuccess": {
+              "displayText": "See if you can find everything.",
+              "goToReference": "intro"
+            }
+          }
+        },
+        "secret": {
+          "displayText": "Secret scene!",
+          "skillRequirements": {
+            "pancakes": 1,
+            "hygiene": 1
+          },
+          "onSelection": {
+            "onSuccess": {
+              "displayText": "Thanks for playing!",
+              "goToReference": "intro"
+            }
+          }
+        }
+      }
+    }
+  }
+}

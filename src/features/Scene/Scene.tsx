@@ -12,7 +12,7 @@ type SceneProps = {
 };
 
 export const Scene: FC<SceneProps> = ({ scene, onSelection }) => {
-  switch (scene.type) {
+  switch (scene?.type) {
     case SceneType.DECISION:
       return (
         <Decision
@@ -27,5 +27,7 @@ export const Scene: FC<SceneProps> = ({ scene, onSelection }) => {
           onSelection={onSelection}
         />
       );
+    default:
+      return <p>Uh oh. That last scene wasn't in the module.</p>;
   }
 };
