@@ -1,10 +1,6 @@
-name: Build & Release
+name: Release
 
 on:
-  push:
-    branches:
-      - main
-
   workflow_dispatch:
 
 jobs:
@@ -23,7 +19,7 @@ jobs:
         with:
           node-version: 16.x
 
-      - name: Build & Release
+      - name: Release
         uses: samuelmeuli/action-electron-builder@v1
         with:
           github_token: ${{ secrets.github_token }}
