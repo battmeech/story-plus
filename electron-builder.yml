@@ -1,7 +1,7 @@
 appId: story.plus
 productName: Story Plus
 mac:
-  icon: build/icon.icns
+  icon: build/icon.png
 win:
-  icon: build/icon.ico
+  icon: build/icon.png
   target: squirrel
