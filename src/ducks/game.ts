@@ -40,7 +40,7 @@ const gameStateSlice = createSlice({
       state.activeScene = state.activeScene =
         state.scenes[action.payload.goToReference];
 
-      processRewards(state, action.payload.reward);
+      processRewards(state, action.payload.playerOutcome);
 
       if (action.payload.displayText) state.showOutcome = true;
     },

@@ -55,7 +55,7 @@
       "displayText": "You have trained your charisma. Go back to the skill challenge.",
       "onNext": {
         "goToReference": "scene-four",
-        "reward": {
+        "playerOutcome": {
           "skills": {
             "CHA": {
               "amountGained": 20

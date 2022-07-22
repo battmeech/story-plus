@@ -4,6 +4,6 @@ export type ModuleSkillReward = {
 
 export type ModuleSkillRewards = Record<string, ModuleSkillReward>;
 
-export type ModuleReward = {
+export type ModulePlayerOutcome = {
   skills?: ModuleSkillRewards;
 };
