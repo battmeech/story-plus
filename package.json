@@ -1,7 +1,8 @@
 {
-  "name": "game",
+  "name": "story-plus",
   "version": "0.1.1",
   "author": "Matt Beech <matthew_beech@live.co.uk>",
+  "description": "An app for playing and creating interactive stories!",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
