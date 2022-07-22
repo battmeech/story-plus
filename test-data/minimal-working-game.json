@@ -50,21 +50,35 @@
         }
       }
     },
+    "scene-three": {
+      "type": "DESCRIPTION",
+      "displayText": "You have trained your charisma. Go back to the skill challenge.",
+      "onNext": {
+        "goToReference": "scene-four",
+        "reward": {
+          "skills": {
+            "CHA": {
+              "amountGained": 20
+            }
+          }
+        }
+      }
+    },
     "scene-four": {
       "type": "DECISION",
-      "displayText": "Skill challenge in this scene. Set CHA to 5000 before loading file to see it",
+      "displayText": "There is a skill challenge here, to go the charisma training ground to unlock it.",
       "options": {
         "1": {
-          "displayText": "Return to start",
+          "displayText": "Go to the charisma training ground",
           "onSelection": {
             "onSuccess": {
-              "goToReference": "scene-one"
+              "goToReference": "scene-three"
             }
           }
         },
         "2": {
           "skillRequirements": {
-            "CHA": 5000
+            "CHA": 10
           },
           "displayText": "Hidden skill test",
           "onSelection": {

@@ -1,7 +1,7 @@
 import { ModuleScene, SceneType } from "./scene";
-import { ModuleOnOutcome } from "./option";
+import { ModuleOutcome } from "./outcome";
 
 export type ModuleDescription = ModuleScene & {
   type: SceneType.DESCRIPTION;
-  onNext: ModuleOnOutcome;
+  onNext: ModuleOutcome;
 };

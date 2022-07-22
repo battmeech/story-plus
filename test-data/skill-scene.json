@@ -36,6 +36,20 @@
           }
         }
       }
+    },
+    "skill-increase": {
+      "type": "DESCRIPTION",
+      "displayText": "Skill increasing",
+      "onNext": {
+        "goToReference": "skill-increase",
+        "reward": {
+          "skills": {
+            "WIS": {
+              "amountGained": 2
+            }
+          }
+        }
+      }
     }
   }
 }

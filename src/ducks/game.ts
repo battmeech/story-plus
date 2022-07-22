@@ -1,12 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ModuleGame } from "../module-types/game";
 import { ModuleScene, SceneType } from "../module-types/scene";
-import { ModuleOnOutcome } from "../module-types/option";
 import { ModulePlayerCharacter } from "../module-types/character";
+import { ModuleOutcome } from "../module-types/outcome";
+import { processRewards } from "./actions/reward";
 
 export type GameState = {
   activeScene: ModuleScene;
-  lastOutcome: ModuleOnOutcome;
+  lastOutcome: ModuleOutcome;
   scenes: Record<string, ModuleScene>;
   playerCharacter: ModulePlayerCharacter;
   showOutcome: boolean;
@@ -34,10 +35,12 @@ const gameStateSlice = createSlice({
       state.activeScene = action.payload.scenes[action.payload.initialScene];
       state.playerCharacter = action.payload.playerCharacter;
     },
-    decisionOutcome(state, action: PayloadAction<ModuleOnOutcome>) {
+    decisionOutcome(state, action: PayloadAction<ModuleOutcome>) {
       state.lastOutcome = action.payload;
       state.activeScene = state.activeScene =
         state.scenes[action.payload.goToReference];
+
+      processRewards(state, action.payload.reward);
 
       if (action.payload.displayText) state.showOutcome = true;
     },

@@ -5,7 +5,7 @@ import { gameStateActions } from "../ducks/game";
 import gameData from "../../test-data/skill-scene.json";
 import { ModuleGame } from "../module-types/game";
 import { applicationActions, ApplicationScreen } from "../ducks/application";
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 
 describe("Skill based options", () => {
   beforeEach(() => {
@@ -37,5 +37,34 @@ describe("Skill based options", () => {
 
     expect(screen.getByText("visible")).toBeInTheDocument();
     expect(screen.getByText("skill test")).toBeInTheDocument();
+  });
+});
+
+describe("Skill rewards", () => {
+  beforeEach(() => {
+    store.dispatch(gameStateActions.gameLoaded(gameData as ModuleGame));
+    store.dispatch(applicationActions.screenChanged(ApplicationScreen.GAME));
+    store.dispatch(gameStateActions.sceneChanged("skill-increase"));
+  });
+
+  it("increases the players score when they go through a skill increase", async () => {
+    render(
+      <Provider store={store}>
+        <Application />
+      </Provider>
+    );
+
+    const currentScore =
+      store.getState().gameState.playerCharacter.skillScores["WIS"];
+
+    await act(() => {
+      screen.getByText("Next").click();
+    });
+
+    const newScore =
+      store.getState().gameState.playerCharacter.skillScores["WIS"];
+
+    expect(currentScore).toEqual(15);
+    expect(newScore).toEqual(17);
   });
 });

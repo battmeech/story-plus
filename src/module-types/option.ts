@@ -1,13 +1,9 @@
 import { ModuleSkillScores } from "./skill";
-
-export type ModuleOnOutcome = {
-  displayText?: string;
-  goToReference: string;
-};
+import { ModuleOutcome } from "./outcome";
 
 export type ModuleOnSelection = {
   displayText?: string;
-  onSuccess: ModuleOnOutcome;
+  onSuccess: ModuleOutcome;
 };
 
 export type ModuleOption = {
