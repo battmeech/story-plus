@@ -1,4 +1,4 @@
-import { ModuleSkillScore } from "./skill";
+export type ModuleSkillScore = { value: number };
 
 export type ModuleCharacter = {
   name: string;
