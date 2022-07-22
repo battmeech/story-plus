@@ -41,7 +41,7 @@
     ]
   },
   "main": "public/electron.js",
-  "homepage": "./",
+  "homepage": "https://github.com/battmeech/story-plus",
   "license": "MIT",
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
