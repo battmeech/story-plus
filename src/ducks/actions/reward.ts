@@ -8,7 +8,7 @@ export const processRewards = (
   if (!playerOutcome) return;
   if (playerOutcome.skills) {
     for (const skill of Object.keys(playerOutcome.skills)) {
-      state.playerCharacter.skillScores[skill] +=
+      state.playerCharacter.skillScores[skill].value +=
         playerOutcome.skills[skill].amountGained;
     }
   }

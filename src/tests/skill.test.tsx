@@ -64,7 +64,7 @@ describe("Skill rewards", () => {
     const newScore =
       store.getState().gameState.playerCharacter.skillScores["WIS"];
 
-    expect(currentScore).toEqual(15);
-    expect(newScore).toEqual(17);
+    expect(currentScore.value).toEqual(15);
+    expect(newScore.value).toEqual(17);
   });
 });

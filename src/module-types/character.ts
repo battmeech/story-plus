@@ -1,9 +1,9 @@
-import { ModuleSkillScores } from "./skill";
+import { ModuleSkillScore } from "./skill";
 
 export type ModuleCharacter = {
   name: string;
 };
 
 export type ModulePlayerCharacter = ModuleCharacter & {
-  skillScores: ModuleSkillScores;
+  skillScores: Record<string, ModuleSkillScore>;
 };
