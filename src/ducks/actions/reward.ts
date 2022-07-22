@@ -11,5 +11,18 @@ export const processRewards = (
       state.playerCharacter.skillScores[skill].value +=
         playerOutcome.skills[skill].amountGained || 0;
     }
+
+    for (const skill of Object.keys(playerOutcome.skills)) {
+      const experience =
+        (state.playerCharacter.skillScores[skill].experience || 0) +
+        (playerOutcome.skills[skill].experienceGained || 0);
+
+      if (experience < 10) {
+        state.playerCharacter.skillScores[skill].experience = experience;
+      } else {
+        state.playerCharacter.skillScores[skill].value++;
+        state.playerCharacter.skillScores[skill].experience = experience - 10;
+      }
+    }
   }
 };

@@ -1,5 +1,6 @@
 export type ModuleSkillReward = {
   amountGained?: number;
+  experienceGained?: number;
 };
 
 export type ModuleSkillRewards = Record<string, ModuleSkillReward>;

@@ -1,4 +1,7 @@
-export type ModuleSkillScore = { value: number };
+export type ModuleSkillScore = {
+  value: number;
+  experience?: number;
+};
 
 export type ModuleCharacter = {
   name: string;
