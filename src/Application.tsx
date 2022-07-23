@@ -1,8 +1,8 @@
 import React from "react";
-import { Game } from "../Game/Game";
-import { useApplication } from "../../ducks/store";
-import { ApplicationScreen } from "../../ducks/application";
-import { FileLoader } from "../FileLoader/FileLoader";
+import { Game } from "./game/Game";
+import { useApplication } from "./ducks/store";
+import { ApplicationScreen } from "./ducks/application";
+import { FileLoader } from "./game/FileLoader";
 
 export const Application = () => {
   const { screen } = useApplication();

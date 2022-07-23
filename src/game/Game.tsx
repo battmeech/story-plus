@@ -1,10 +1,10 @@
 import React from "react";
-import { gameStateActions } from "../../ducks/game";
-import { useGameState } from "../../ducks/store";
+import { gameStateActions } from "../ducks/game";
+import { useGameState } from "../ducks/store";
 import { useDispatch } from "react-redux";
-import { Scene } from "../Scene/Scene";
-import { Outcome } from "../Scene/Outcome";
-import { ModuleOutcome } from "../../module-types/outcome";
+import { Scene } from "./Scene/Scene";
+import { Outcome } from "./Scene/Outcome";
+import { ModuleOutcome } from "../module-types/outcome";
 
 export const Game = () => {
   const { activeScene, showOutcome, lastOutcome } = useGameState();

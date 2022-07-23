@@ -1,6 +1,6 @@
 import { Provider } from "react-redux";
 import { store } from "../ducks/store";
-import { Application } from "../features/Application/Application";
+import { Application } from "../Application";
 import { gameStateActions } from "../ducks/game";
 import gameData from "../../test-data/skill-scene.json";
 import { ModuleGame } from "../module-types/game";

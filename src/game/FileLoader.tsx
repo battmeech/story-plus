@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { gameStateActions } from "../../ducks/game";
-import { applicationActions, ApplicationScreen } from "../../ducks/application";
+import { gameStateActions } from "../ducks/game";
+import { applicationActions, ApplicationScreen } from "../ducks/application";
 
 export const FileLoader = () => {
   const dispatch = useDispatch();
