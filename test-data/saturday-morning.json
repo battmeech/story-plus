@@ -14,7 +14,7 @@
   "scenes": {
     "intro": {
       "type": "DESCRIPTION",
-      "displayText": "It's a beautiful Saturday morning and you don't have to worry about work for an entire weekend. The Sun is coming up and you start to feel yourself wake up.",
+      "displayText": "It's a beautiful Saturday morning and you don't have to worry about work for an entire weekend.<br /> The Sun is coming up and you start to feel yourself wake up.",
       "onNext": {
         "goToReference": "bedroom"
       }

@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { ModuleDescription } from "../../module-types/description";
 import { ModuleOutcome } from "../../module-types/outcome";
+import { Markup } from "../../components/Markup";
 
 type DescriptionProps = {
   description: ModuleDescription;
@@ -13,8 +14,7 @@ export const Description: FC<DescriptionProps> = ({
 }) => {
   return (
     <div>
-      <p>{description.displayText}</p>
-
+      <Markup html={description.displayText} />
       <button onClick={() => _onSelection(description.onNext)}>Next</button>
     </div>
   );

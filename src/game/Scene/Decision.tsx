@@ -2,6 +2,7 @@ import { FC } from "react";
 import { ModuleDecision } from "../../module-types/decision";
 import { useGameState } from "../../ducks/store";
 import { ModuleOutcome } from "../../module-types/outcome";
+import { Markup } from "../../components/Markup";
 
 type DecisionProps = {
   decision: ModuleDecision;
@@ -33,7 +34,7 @@ export const Decision: FC<DecisionProps> = ({
 
   return (
     <div>
-      <p>{decision.displayText}</p>
+      <Markup html={decision.displayText} />
 
       {options.map(({ optionId, displayText, onSelection }) => (
         <div key={optionId}>
